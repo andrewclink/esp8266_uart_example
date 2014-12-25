@@ -24,7 +24,9 @@ void uart_recv_task(os_event_t * event)
 
 void user_init(void)
 {
-  uart_init(BIT_RATE_115200, BIT_RATE_115200);
+  uart_init(BIT_RATE_115200, BIT_RATE_115200); 
+  os_install_putc1((void *)uart0_write_char);
+  
   os_delay_us(1000000);
   os_printf("\r\nos_printf()\r\n");
   os_delay_us(1000000);

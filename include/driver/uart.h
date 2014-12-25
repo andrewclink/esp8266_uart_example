@@ -99,5 +99,8 @@ typedef struct {
 void uart_init(UartBautRate uart0_br, UartBautRate uart1_br);
 void uart0_sendStr(const char *str);
 
+void uart0_write_char(char c);
+void uart1_write_char(char c);
+
 #endif
 

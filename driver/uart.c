@@ -110,8 +110,7 @@ uart_tx_one_char(uint8 uart, uint8 TxChar)
  * Parameters   : char c - character to tx
  * Returns      : NONE
 *******************************************************************************/
-LOCAL void ICACHE_FLASH_ATTR
-uart1_write_char(char c)
+void ICACHE_FLASH_ATTR uart1_write_char(char c)
 {
   if (c == '\n')
   {
@@ -127,8 +126,7 @@ uart1_write_char(char c)
   }
 }
 
-LOCAL void ICACHE_FLASH_ATTR
-uart0_write_char(char c)
+void ICACHE_FLASH_ATTR uart0_write_char(char c)
 {
   if (c == '\n')
   {
@@ -255,8 +253,6 @@ uart_init(UartBautRate uart0_br, UartBautRate uart1_br)
   uart_config(UART1);
   ETS_UART_INTR_ENABLE();
 
-  // install uart1 putc callback
-  os_install_putc1((void *)uart0_write_char);
 }
 
 void ICACHE_FLASH_ATTR uart_reattach()
